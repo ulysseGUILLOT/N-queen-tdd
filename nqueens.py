@@ -9,11 +9,6 @@ def display_board(board):
         print()
 
 
-def solve_nqueens(n):
-    if n == 1:
-        return [[1]]
-    return []
-
 def is_safe(board, row, col, n):
     # Vérifie la ligne à gauche
     for i in range(col):
@@ -32,3 +27,18 @@ def is_safe(board, row, col, n):
 
     return True
 
+def solve_nqueens_util(board, col, n, solutions):
+    if col >= n:
+        solutions.append([row[:] for row in board])
+        return
+
+    for i in range(n):
+        if is_safe(board, i, col, n):
+            board[i][col] = 1
+            solve_nqueens_util(board, col + 1, n, solutions)
+            board[i][col] = 0
+
+def solve_nqueens(n):
+    if n == 1:
+        return [[1]]
+    return []
