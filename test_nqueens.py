@@ -24,3 +24,16 @@ def test_nqueens_1():
 ])
 def test_create_board(n, expected):
     assert create_board(n) == expected
+
+
+def test_is_safe():
+    board = create_board(4)
+
+    # place une reine en 0:0
+    board[0][0] = 1
+
+    assert is_safe(board, 0, 0, 4) == False
+    assert is_safe(board, 1, 0, 4) == True
+    assert is_safe(board, 2, 0, 4) == True
+    assert is_safe(board, 0, 2, 4) == False
+    assert is_safe(board, 0, 3, 4) == False
