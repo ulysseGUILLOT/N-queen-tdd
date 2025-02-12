@@ -4,7 +4,7 @@ from nqueens import *
 
 def test_nqueens_1():
     result = solve_nqueens(1)
-    expected = [[1]]
+    expected = [[[1]]]
     assert result == expected
 
 
@@ -69,3 +69,20 @@ def test_solve_nqueens_util_n():
     ]
 
     assert solutions == expected_solutions
+
+
+def test_solve_nqueens():
+    assert solve_nqueens(1) == [[[1]]]
+    assert solve_nqueens(2) == []
+    assert solve_nqueens(3) == []
+    assert solve_nqueens(4) == [
+        [[0, 0, 1, 0],
+         [1, 0, 0, 0],
+         [0, 0, 0, 1],
+         [0, 1, 0, 0]],
+
+        [[0, 1, 0, 0],
+         [0, 0, 0, 1],
+         [1, 0, 0, 0],
+         [0, 0, 1, 0]]
+    ]

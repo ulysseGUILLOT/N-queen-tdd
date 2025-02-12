@@ -39,6 +39,7 @@ def solve_nqueens_util(board, col, n, solutions):
             board[i][col] = 0
 
 def solve_nqueens(n):
-    if n == 1:
-        return [[1]]
-    return []
+    board = create_board(n)
+    solutions = []
+    solve_nqueens_util(board, 0, n, solutions)
+    return solutions
