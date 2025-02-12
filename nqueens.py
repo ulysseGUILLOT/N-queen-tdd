@@ -1,12 +1,13 @@
 def create_board(n):
     return [[0 for _ in range(n)] for _ in range(n)]
 
-def display_board(board):
-    n = len(board)
-    for i in range(n):
-        for j in range(n):
-            print (board[i][j],end=' ')
+def display_boards(solutions):
+    for solution in solutions:
+        for row in solution:
+            print(" ".join(str(cell) for cell in row))
         print()
+
+    print("Nombre de solutions : ", len(solutions))
 
 
 def is_safe(board, row, col, n):
@@ -43,3 +44,6 @@ def solve_nqueens(n):
     solutions = []
     solve_nqueens_util(board, 0, n, solutions)
     return solutions
+
+
+display_boards(solve_nqueens(12))
